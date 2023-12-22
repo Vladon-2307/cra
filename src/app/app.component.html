@@ -1,0 +1,75 @@
+<section class="flex gap-10">
+  <div>
+    <form [formGroup]="inp" (submit)="add()">
+      <button type="submit" class="btn w-full">+</button>
+      <div class="flex">
+        <input class="w-20 border" placeholder="X" type="number" formControlName="ix" />
+        <input class="w-20 border" placeholder="Y" type="number" formControlName="iy"  />
+      </div>
+    </form>
+
+    <table class="w-full">
+      <tr>
+        <th>X</th>
+        <th>Y</th>
+      </tr>
+      @for (i of count(x.length); track $index) {
+      <tr>
+        <td class="text-center">{{ x[i] | number : "1.2" }}</td>
+        <td class="text-center">{{ y[i] | number : "1.2" }}</td>
+      </tr>
+      }
+    </table>
+  </div>
+
+  <div>
+    <button class="btn" (click)="calculate(x, y)">расчитать</button>
+
+    <div>
+      <div class="flex gap-5">
+        <p class="font-semibold">
+          Сумма Х: <span>{{ sumx | number : "1.2" }}</span>
+        </p>
+        <p class="font-semibold">
+          Ср. з. Х: <span>{{ srx | number : "1.2" }}</span>
+        </p>
+      </div>
+
+      <div class="flex gap-5">
+        <p class="font-semibold">
+          Сумма У: <span>{{ sumy | number : "1.2" }}</span>
+        </p>
+        <p class="font-semibold">
+          Ср. з. У: <span>{{ sry | number : "1.2" }}</span>
+        </p>
+      </div>
+
+      <p class="font-semibold">
+        Ср. квадратичное отклонение Х:
+        <span>{{ srotx2 | number : "1.2" }}</span>
+      </p>
+      <p class="font-semibold">
+        Ср. квадратичное отклонение У:
+        <span>{{ sroty2 | number : "1.2" }}</span>
+      </p>
+
+      <div class="flex gap-5">
+        <p class="font-semibold">
+          a: <span>{{ a | number : "1.2" }}</span>
+        </p>
+        <p class="font-semibold">
+          b: <span>{{ b | number : "1.2" }}</span>
+        </p>
+      </div>
+
+      <div class="flex gap-5">
+        <p class="font-semibold">
+          r: <span>{{ r | number : "1.2" }}</span>
+        </p>
+        <p class="font-semibold">
+          n^2: <span>{{ n2 | number : "1.2" }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
